@@ -1,4 +1,4 @@
-let passwordHideShowBtn = document.querySelectorAll('.password_hide_show_icon')[0];
+let passwordHideShowBtn = document.querySelectorAll('.password-hide-show-icon')[0];
 passwordHideShowBtn.addEventListener('click', function (e) {
     let passwordField = document.querySelector('#password');
     if (passwordField.type === 'password') {
