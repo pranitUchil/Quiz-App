@@ -1,0 +1,14 @@
+usersList = []
+
+newUser = {}
+
+questions = [] // approx 15 questions
+
+userQuizes = [] // users and their quizes
+// userId, quizId, questionAndAnswers[{questionId, answerId}], score, correctAnswersCount
+
+currentQuiz = {}
+// userId, quizId, questionAndAnswers[{questionId, answerId}]
+
+
+

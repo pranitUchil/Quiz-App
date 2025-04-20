@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="./assets/img/cloud-image.png" alt="Login Image" class="cloud-image">
+        </div>
+        <div class="form-container">
+            <form onsubmit="login(event)" >
+                <h3 class="form-title">Login</h1>
+                <p class="deception">Please enter your details below</p>
+                <div class="form-group">
+                    <label for="email">Email ID<samp class="red-star">*</samp></label>
+                    <input type="email" id="email" name="email" placeholder="xyz12@gmail.com" required>
+                </div>
+                <div class="form-group positon-relative">
+                    <label for="password">Password<samp class="red-star">*</samp></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <div class="password-hide-show-icon" for="password">
+                        <i class="fa-regular fa-eye-slash"></i>       
+                    </div>
+                    <div class="error-message" for="">Invalid Login</label>
+                </div>
+                <button class="btn" type="submit">Login</button>
+            </form>
+             <div class="card">
+                 <div class="google-card">
+                     <img src="./assets/img/google.png" alt="" height="20px">
+                     <h6>Sign up with Google</h6>
+                 </div>
+            </div>
+            <div class="footer">
+                <p>Don't have an account? <a href="signup.html">Sign up?</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/common.js"></script>
+<script src="./assets/js/login.js"></script>
+</html>

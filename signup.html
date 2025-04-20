@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Signup</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="./assets/img/cloud-image.png" alt="Login Image" class="cloud-image">
+        </div>
+        <div class="form-container">
+            <form onsubmit="showOtpSection(event)">
+                <h3 class="form-title">Signup</h1>
+                <p class="deception">Sign Up to Join</p>
+                <div class="form-group">
+                    <label for="fullname">Full Name<samp class="red-star">*</samp></label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID<samp class="red-star">*</samp></label>
+                    <input type="email" id="email" name="email" placeholder="xyz12@gmail.com" required>
+                </div>
+                <div class="form-group positon-relative">
+                    <label for="password">Password<samp class="red-star">*</samp></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <div class="password-hide-show-icon" for="password">
+                        <i class="fa-regular fa-eye-slash"></i>       
+                    </div>
+                </div>
+                <button class="btn" type="submit">Signup</button>
+            </form>
+             <div class="card">
+                 <div class="google-card">
+                     <img src="./assets/img/google.png" alt="" height="20px">
+                     <h6>Sign up with Google</h6>
+                 </div>
+            </div>
+            <div class="footer">
+                <div class="tems-and-conditions">
+                    <input type="checkbox">
+                   <span>I accept</span>  <a href="#">Terms of Conditions</a>
+                </div>
+                <p>Have an account? <a href="login.html">Log in?</a></p>
+            </div>
+        </div>
+        <div class="otp-container">
+            <div class="otp-title">
+                <img src="./assets/img/check.jpg" height="20px" alt="">
+                <h2>Confirm your email</h2>
+            </div>
+            <p class="deception">We have sent OTP to <span id="signup-email" class="text-blue"></span></p>
+            <div class="otps-inputs">
+                <input type="text" class="otp-input" id="otp-input1" maxlength="1" onkeyup="moveToNext(this, 'otp-input2')">
+                <input type="text" class="otp-input" id="otp-input2" maxlength="1" onkeyup="moveToNext(this, 'otp-input3','otp-input1')">
+                <input type="text" class="otp-input" id="otp-input3" maxlength="1" onkeyup="moveToNext(this, 'otp-input4','otp-input2')">
+                <input type="text" class="otp-input" id="otp-input4" maxlength="1" onkeyup="moveToNext(this, 'otp-input5','otp-input3')">
+                <input type="text" class="otp-input" id="otp-input5" maxlength="1" onkeyup="moveToNext(this, 'otp-input6','otp-input4')">
+                <input type="text" class="otp-input" id="otp-input6" maxlength="1" onkeyup="moveToNext(this, '','otp-input5')">
+            </div>
+            <div class="error-message" for="">Please enter otp</div>
+            <button class="btn" onclick="checkOtp()">Continue</button>
+            <p class="otp-resend">Resend OTP in <span>00:30</span></p>
+        </div>
+        <div class="loader-container">
+            <div class="loader">
+            </div>
+            <div class="loader-title">We're verifying your account</div>
+        </div>
+        <div class="success-container">
+            <img class="success-img" src="./assets/img/check-blue.png" alt="">
+            <div class="success-title">
+                Your account is verified
+            </div>
+            <p class="success-deception"></p>
+            <button class="btn" onclick="location.href='./'">Continue</button>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/common.js"></script>
+<script src="./assets/js/signup.js"></script>
+</html>

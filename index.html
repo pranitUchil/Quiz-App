@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dashbord</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body style="width: 100vw;overflow-x: hidden;">
+    <header>
+        <a href="./">
+            <img src="./assets/img/techoaathshala_logo.png" height="20px" alt="">
+        </a>
+        <nav>
+            <ul>
+                <li class="link" id="edit-quizzes">Edit Quizzes</li>
+                <li class="link" id="all-quizzes">All Quizzes</li>
+                <li class="link" onclick="logout()">Logout</li>
+                <li><img  class="user-image" src="./assets/img/profile_picture.png" alt=""></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="quiz-container">
+        <div class="quiz-start-container">
+            <h1>Let's Start the Quiz</h1>
+            <div class="time">
+                <i class="far fa-clock"></i> <span>10 min</span>
+            </div>
+            <ul>
+                <li>Disclaimers</li>
+                <li>Disclaimers</li>
+            </ul>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./assets/img/Home Page Gray.png" alt="">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <h2>Catchy Line for Starting Quiz</h2>
+                            <p>When your're done, review your answers and See your rank.</p>
+                        </div>
+                        <form id="start-quiz-form" action="" method="post">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="fullname">Full Name<samp class="red-star">*</samp></label>
+                                    <input type="text" id="fullname" name="fullname" placeholder="fullname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email<samp class="red-star">*</samp></label>
+                                    <input type="email" id="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-no">Contact No<samp class="red-star">*</samp></label>
+                                    <input type="tel" maxlength="10" id="contact-no" maxlength="10" name="email" placeholder="Contact No" required>
+                                </div>
+                            </div>
+                            <div class="form-btn">
+                                <button class="btn" type="submit">Start Quiz</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-question-container" style="display: none;">
+            <h2 class="question-number">Question 1 of 10</h2>
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="question-container">
+                <h3 class="question">1. The is the Question?</h3>
+                <div class="quesetion-options">
+                    <div class="option-group">
+                        <span>1. </span>
+                        <input type="radio" name="option" id="option1" value="option1">
+                        <label for="option1">Option</label>
+                    </div>
+                    <div class="option-group">
+                        <span>2. </span>
+                        <input type="radio" name="option" id="option2" value="option1">
+                        <label for="option2">Option</label>
+                    </div>
+                    <div class="option-group">
+                        <span>3. </span>
+                        <input type="radio" name="option" id="option3" value="option1">
+                        <label for="option3">Option</label>
+                    </div>
+                    <div class="option-group">
+                        <span>4. </span>
+                        <input type="radio" name="option" id="option4" value="option1">
+                        <label for="option4">Option</label>
+                    </div>
+                </div>
+                <div class="quiz-btns">
+                    <button class="previous" onclick="loadQuestion('Previous')"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                    <button class="next" onclick="loadQuestion('Next')">Submit & Continue <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-resulte-container" style="display: none;">
+            <h1 class="resulte-title">Wow You Rank 1st</h1>
+            <p></p>
+            <div class="top-ranks">
+                <div class="rank-2">
+                    <h2 class="rank-title">#2</h2>
+                    <img src="./assets/img/rank_image1.png" alt="">
+                    <div class="rank-details">
+                        <h2 id="rank-2-name" class="name">Rank 2</h2>
+                        <h3 class="score">Score</h3>
+                        <p id="rank-2-score"></p>
+                    </div>
+                </div>
+                <div class="rank-1">
+                    <img src="./assets/img/rank_image2.png" alt="">
+                    <div class="rank-details">
+                        <h2 id="rank-1-name" class="name">Rank 1</h2>
+                        <h3 class="score">Score</h3>
+                        <p id="rank-1-score"></p>
+                    </div>
+
+                </div>
+                <div class="rank-3">
+                    <h2 class="rank-title">#3</h2>
+                    <img src="./assets/img/rank_image3.png" alt="">
+                    <div class="rank-details">
+                        <h2 id="rank-3-name" class="name">Rank 3</h2>
+                        <h3 class="score">Score</h3>
+                        <p id="rank-3-score"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div> -->
+                <div class="cricle">
+                    <div class="other-ranks">
+                        <div class="card">
+                            <div class="rank-body">
+                                <div class="rank">
+                                    <h2>#4</h2>
+                                    <label for="">Name</label>
+                                </div>
+                                <h2 class="rank-score">345</h2>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="rank-body">
+                                <div class="rank">
+                                    <h2>#5</h2>
+                                    <label for="">Name</label>
+                                </div>
+                                <h2 class="rank-score">245</h2>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="rank-body">
+                                <div class="rank">
+                                    <h2>#5</h2>
+                                    <label for="">Name</label>
+                                </div>
+                                <h2 class="rank-score">145</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
