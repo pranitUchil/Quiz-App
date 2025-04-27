@@ -11,6 +11,16 @@ function moveToNext(current, nextId, prevId) {
 
 function showOtpSection(e){
     e.preventDefault();
+    
+    
+    let terms = document.querySelector('#terms-of-conditions').checked;
+    if(!terms){
+        document.querySelector('#terms-error').style.display = 'block';
+        return false;
+    }
+    else{
+        document.querySelector('#terms-error').style.display = 'none';
+    }
 
     document.querySelector('.otp-container').style.display = 'block';
     document.querySelector('.form-container').style.display = 'none';
@@ -20,7 +30,7 @@ function showOtpSection(e){
     document.querySelector('#signup-email').innerHTML = `${email} <i class="fa-solid fa-pen" style="cursor: pointer;margin-left: 5px;
     font-size: 12px;" onclick="showSignupSection()"></i>`;
 
-    otp = (Math.random() * 1000000).toFixed(0);
+    otp = Math.floor(100000 + Math.random() * 900000);
     console.log('OTP - '+otp);
 }
 

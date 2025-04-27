@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <i class="fa-solid fa-bars" onclick="openCloseSideMenu()"></i>
+            <a href="./">
+                <img src="../assets/img/techoaathshala_logo.png" height="20px" alt="">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="link" onclick="showModal('logoutConfirmModal')">Logout</li>
+                <li><img  class="user-image" src="../assets/img/profile_picture.png" alt=""></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="side-nav-bar">
+            <nav>
+                <ul>
+                    <li><i class="fa-solid fa-house"></i><a href="./index.html">Home</a></li>
+                    <li class="active"><i class="fa-solid fa-user"></i><a href="./users.html">Users</a></li>
+                    <li><i class="fa-regular fa-circle-question"></i><a href="./questions.html">Quiz Question</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h1>Users</h1>
+            <div id="user-table" class="card">
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <th></th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Quiz</th>
+                        </thead>
+                        <tbody id="user-table-row">
+                            <tr>
+                                <td><i class="fa-solid fa-eye"></i></td>
+                                <td>Pranit</td>
+                                <td>pranituchil151@gmail.com</td>
+                                <td>9893783839</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Pranit</td>
+                                <td>pranituchil151@gmail.com</td>
+                                <td>9893783839</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Pranit</td>
+                                <td>pranituchil151@gmail.com</td>
+                                <td>9893783839</td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="user-quizs" class="card" style="display: none;">
+                <i class="fa-solid fa-arrow-left-long" onclick="showUserTable()"></i>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <th></th>
+                            <th>No</th>
+                            <th>Duration</th>
+                            <th>Score</th>
+                        </thead>
+                        <tbody id="user-quiz-table-row">
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="user-quizs-answer" class="card" style="display: none;">
+                <i class="fa-solid fa-arrow-left-long" onclick="backToQuizeTable()"></i>
+                <div id="question-answer-container" class="card-body">
+                    <h2 class="quiz-question">1) ffdsfda</h3>
+                    <div class="option">
+                        1) this is coreee
+                    </div>
+                    <div class="option option-correct">
+                        2) this is coreee
+                    </div>
+                    <div class="option">
+                        3) this is coreee
+                    </div>
+                    <div class="option option-wrong">
+                        4) this is coreee
+                    </div>
+                    <h2 class="quiz-question">1) ffdsfda</h3>
+                        <div class="option">
+                            1) this is coreee
+                        </div>
+                        <div class="option option-correct">
+                            2) this is coreee
+                        </div>
+                        <div class="option">
+                            3) this is coreee
+                        </div>
+                        <div class="option option-wrong">
+                            4) this is coreee
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div id="logoutConfirmModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Are you sure you want to logout</span>
+            <div class="close" onclick="closeModal('logoutConfirmModal')">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <!-- <div class="modal-body">
+            <p>Are you sure you want to logout</p>
+        </div> -->
+        <div class="modal-footer">
+            <button class="btn btn-sm" onclick="closeModal('logoutConfirmModal')">No</button>
+            <button class="btn btn-sm" onclick="logout('Admin')">Yes</button>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/common.js"></script>
+<script src="./assets/js/users.js"></script>
+</html>

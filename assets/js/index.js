@@ -33,7 +33,7 @@ let userData = JSON.parse(localStorage.getItem('LoginUserData'));
 //     {
 //       question: "How do you center an element using CSS?",
 //       options: ["margin: auto;", "text-align: center;", "both A and B", "align: center;"],
-//       correct: "both A and B"
+//       correct: "both 1 and 2"
 //     },
 //     {
 //       question: "How do you create a function in JavaScript?",
@@ -53,7 +53,7 @@ let userData = JSON.parse(localStorage.getItem('LoginUserData'));
 //     {
 //       question: "How do you add a comment in JavaScript?",
 //       options: ["&lt;!-- This is a comment --&gt;", "// This is a comment", "/* This is a comment */", "Both B and C"],
-//       correct: "Both B and C"
+//       correct: "Both 2 and 3"
 //     },
 //     {
 //       question: "Which HTML attribute is used to define inline styles?",
@@ -107,115 +107,10 @@ let userData = JSON.parse(localStorage.getItem('LoginUserData'));
 //     }
 //   ];
 
-const quizQuestionsSets  = [
-  {
-    question: "What does HTML stand for?",
-    options: ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "Hyper Text Marketing Language", "Hyper Tool Markup Language"],
-    correct: "Hyper Text Markup Language"
-  },
-  {
-    question: "Which HTML tag is used to define an internal style sheet?",
-    options: ["&lt;style&gt;", "&lt;script&gt;", "&lt;css&gt;", "&lt;link&gt;"],
-    correct: "<style>"
-  },
-  {
-    question: "What is the correct syntax for referring to an external script called 'app.js'?",
-    options: ["&lt;script src='app.js'&gt;", "&lt;script href='app.js'&gt;", "&lt;script ref='app.js'&gt;", "&lt;script name='app.js'&gt;"],
-    correct: "<script src='app.js'>"
-  },
-  {
-    question: "Which property is used to change the background color in CSS?",
-    options: ["color", "bgcolor", "background-color", "background"],
-    correct: "background-color"
-  },
-  {
-    question: "How do you write 'Hello World' in an alert box in JavaScript?",
-    options: ["alertBox('Hello World');", "msgBox('Hello World');", "alert('Hello World');", "msg('Hello World');"],
-    correct: "alert('Hello World');"
-  },
-  {
-    question: "Which HTML element is used to specify a footer for a document or section?",
-    options: ["&lt;bottom&gt;", "&lt;footer&gt;", "&lt;section&gt;", "&lt;aside&gt;"],
-    correct: "<footer>"
-  },
-  {
-    question: "How do you center an element using CSS?",
-    options: ["margin: auto;", "text-align: center;", "both A and B", "align: center;"],
-    correct: "both A and B"
-  },
-  {
-    question: "How do you create a function in JavaScript?",
-    options: ["function = myFunc()", "function:myFunc()", "function myFunc()", "create myFunc()"],
-    correct: "function myFunc()"
-  },
-  {
-    question: "Which tag is used to create a hyperlink in HTML?",
-    options: ["&lt;link&gt;", "&lt;a&gt;", "&lt;href&gt;", "&lt;hyperlink&gt;"],
-    correct: "<a>"
-  },
-  {
-    question: "Which CSS property controls the text size?",
-    options: ["text-size", "font-style", "font-size", "text-style"],
-    correct: "font-size"
-  },
-  {
-    question: "How do you add a comment in JavaScript?",
-    options: ["&lt;!-- This is a comment --&gt;", "// This is a comment", "/* This is a comment */", "Both B and C"],
-    correct: "Both B and C"
-  },
-  {
-    question: "Which HTML attribute is used to define inline styles?",
-    options: ["class", "style", "font", "styles"],
-    correct: "style"
-  },
-  {
-    question: "What does CSS stand for?",
-    options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
-    correct: "Cascading Style Sheets"
-  },
-  {
-    question: "How do you select an element with id 'demo' in CSS?",
-    options: ["#demo", ".demo", "*demo", "demo"],
-    correct: "#demo"
-  },
-  {
-    question: "What is the correct JavaScript syntax to change the content of the HTML element below?\n&lt;p id='demo'&gt;This is a demo&lt;/p&gt;",
-    options: [
-      "document.getElementByName('demo').innerHTML = 'Hello';",
-      "document.getElement('demo').innerHTML = 'Hello';",
-      "document.getElementById('demo').innerHTML = 'Hello';",
-      "#demo.innerHTML = 'Hello';"
-    ],
-    correct: "document.getElementById('demo').innerHTML = 'Hello';"
-  },
-  {
-    question: "Which tag is used to display a picture in a web page?",
-    options: ["&lt;image&gt;", "&lt;pic&gt;", "&lt;img&gt;", "&lt;src&gt;"],
-    correct: "<img>"
-  },
-  {
-    question: "What does '===' mean in JavaScript?",
-    options: ["Assign value", "Compare value and type", "Compare only type", "Compare only value"],
-    correct: "Compare value and type"
-  },
-  {
-    question: "How can you make a numbered list in HTML?",
-    options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;list&gt;"],
-    correct: "<ol>"
-  },
-  {
-    question: "Which CSS property is used to change the text color?",
-    options: ["fgcolor", "text-color", "color", "font-color"],
-    correct: "color"
-  },
-  {
-    question: "How do you declare a JavaScript variable?",
-    options: ["v carName;", "variable carName;", "var carName;", "declare carName;"],
-    correct: "var carName;"
-  }
-];
+const quizQuestionsSets  = JSON.parse(localStorage.getItem('QuizQuestions')) || [];
 let quizQuestions = [];
 let currentQuestionIndex;
+let quizStartDateTime;
   
 if(!userData){
     window.location.href = 'login.html';
@@ -240,6 +135,10 @@ function give10ramdomQuestions(){
 
 document.getElementById("start-quiz-form").addEventListener("submit", function (e) {
     e.preventDefault(); // ✅ Stop form from submitting and showing values in URL
+    quizStartDateTime = new Date();
+    let formsInputsID = ['fullname','email','contact-no'];
+    if(!isFormValid(formsInputsID))
+        return
     let users = JSON.parse(localStorage.getItem('UserList'));
 
     users.forEach(element => {
@@ -253,8 +152,7 @@ document.getElementById("start-quiz-form").addEventListener("submit", function (
     quizQuestions = give10ramdomQuestions();
     document.querySelector('.quiz-start-container').style.display = 'none';
     document.querySelector('.quiz-question-container').style.display = 'block';
-    document.querySelector('#edit-quizzes').style.display = 'none';
-    document.querySelector('#all-quizzes').style.display = 'none';
+  
 
     loadQuestion('Next')
 })
@@ -336,6 +234,15 @@ function calcunateResult(){
     users.forEach(element => {
         if(element.ID == userData.ID){
             element.LastQuizScore = correctAnswers;
+            if(!element.UserQuizs)
+              element.UserQuizs = [];
+
+            element.UserQuizs.push({
+              QuestionAndAnswer:quizQuestions,
+              StartDateTime : quizStartDateTime,
+              EndDateTime : new Date(),
+              Score:correctAnswers
+            })
             localStorage.setItem('LoginUserData', JSON.stringify(element));
             userData = element;
         }
@@ -419,9 +326,4 @@ function loadTable(users){
       }
     });
     tableBody.innerHTML = rows;
-}
-
-function logout(){
-    localStorage.removeItem('LoginUserData');
-    window.location.href = 'login.html';
 }

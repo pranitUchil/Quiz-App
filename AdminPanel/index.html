@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Quiz</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <i class="fa-solid fa-bars" onclick="openCloseSideMenu()"></i>
+            <a href="./">
+                <img src="../assets/img/techoaathshala_logo.png" height="20px" alt="">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="link" onclick="showModal('logoutConfirmModal')">Logout</li>
+                <li><img  class="user-image" src="../assets/img/profile_picture.png" alt=""></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="side-nav-bar">
+            <nav>
+                <ul>
+                    <li class="active"><i class="fa-solid fa-house"></i><a href="./index.html">Home</a></li>
+                    <li><i class="fa-solid fa-user"></i><a href="./users.html">Users</a></li>
+                    <li><i class="fa-regular fa-circle-question"></i><a href="./questions.html">Quiz Question</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="dashboard">
+            <h1 class="dashboard-title">Welcome Admin</h1>
+            <div class="card-row">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 id="total-users">Total Users - 0</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 id="total-quiz">Total Quiz - 0</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 id="question">Questions - 0</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div id="logoutConfirmModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Are you sure you want to logout</span>
+            <div class="close" onclick="closeModal('logoutConfirmModal')">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <!-- <div class="modal-body">
+            <p>Are you sure you want to logout</p>
+        </div> -->
+        <div class="modal-footer">
+            <button class="btn btn-sm" onclick="closeModal('logoutConfirmModal')">No</button>
+            <button class="btn btn-sm" onclick="logout('Admin')">Yes</button>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/common.js"></script>
+<script src="./assets/js/index.js"></script>
+</html>

@@ -1,6 +1,6 @@
 usersList = []
 
-newUser = {}
+newUser   = {}
 
 questions = [] // approx 15 questions
 

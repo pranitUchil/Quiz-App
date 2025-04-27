@@ -21,14 +21,16 @@
                 <p class="deception">Please enter your details below</p>
                 <div class="form-group">
                     <label for="email">Email ID<samp class="red-star">*</samp></label>
-                    <input type="email" id="email" name="email" placeholder="xyz12@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="xyz12@gmail.com">
+                    <div class="form-error">Please enter email id</div>
                 </div>
                 <div class="form-group positon-relative">
                     <label for="password">Password<samp class="red-star">*</samp></label>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password">
                     <div class="password-hide-show-icon" for="password">
                         <i class="fa-regular fa-eye-slash"></i>       
                     </div>
+                    <div class="form-error">Please enter password</div>
                     <div class="error-message" for="">Invalid Login</label>
                 </div>
                 <button class="btn" type="submit">Login</button>
