@@ -770,3 +770,13 @@ tbody tr{
     height: 73vh;
     overflow-y: scroll;
 }
+
+.user-quizs-title{
+    width: 85%;
+    text-align: center;
+}
+
+.container-icon-title{
+    display: flex;
+    align-items: center;
+}
